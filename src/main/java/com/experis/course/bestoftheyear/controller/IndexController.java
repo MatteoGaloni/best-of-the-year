@@ -57,7 +57,7 @@ public class IndexController {
     private List<Song> getBestSongs() {
         List<Song> songs = new ArrayList<>();
         songs.add(new Song("What's My Age Again",
-                "https://pics.filmaffinity.com/Blink_182_What_s_My_Age_Again_Music_Video-753423339-large.jpg",
+                "https://i1.sndcdn.com/artworks-000428550354-xvjoim-t500x500.jpg",
                 "Blink 182"));
         songs.add(new Song("Perth",
                 "https://f4.bcbits.com/img/a1388691918_65",
