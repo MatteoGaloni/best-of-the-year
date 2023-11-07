@@ -21,17 +21,23 @@ public class IndexController {
     @GetMapping("/movies")
     public String movies(Model model) {
         List<String> titles = getBestMovies();
-        String titlesToString = String.join(", ", titles);
+        String titlesToString = getJoinedString(titles);
         model.addAttribute("titles", titlesToString);
         return "bestTitles";
     }
 
+
     @GetMapping("/songs")
     public String songs(Model model) {
         List<String> titles = getBestSongs();
-        String titlesToString = String.join(", ", titles);
+        String titlesToString = getJoinedString(titles);
         model.addAttribute("titles", titlesToString);
         return "bestTitles";
+    }
+
+    private static String getJoinedString(List<String> titles) {
+        String titlesToString = String.join(", ", titles);
+        return titlesToString;
     }
 
     private List<String> getBestMovies() {
