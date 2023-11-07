@@ -1,5 +1,7 @@
 package com.experis.course.bestoftheyear.controller;
 
+import com.experis.course.bestoftheyear.model.Movie;
+import com.experis.course.bestoftheyear.model.Song;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,18 +22,16 @@ public class IndexController {
 
     @GetMapping("/movies")
     public String movies(Model model) {
-        List<String> titles = getBestMovies();
-        String titlesToString = getJoinedString(titles);
-        model.addAttribute("titles", titlesToString);
+        List<Movie> titles = getBestMovies();
+        model.addAttribute("titles", titles);
         return "bestTitles";
     }
 
 
     @GetMapping("/songs")
     public String songs(Model model) {
-        List<String> titles = getBestSongs();
-        String titlesToString = getJoinedString(titles);
-        model.addAttribute("titles", titlesToString);
+        List<Song> titles = getBestSongs();
+        model.addAttribute("titles", titles);
         return "bestTitles";
     }
 
@@ -40,19 +40,31 @@ public class IndexController {
         return titlesToString;
     }
 
-    private List<String> getBestMovies() {
-        List<String> movies = new ArrayList<>();
-        movies.add("Inception");
-        movies.add("Pulp Fiction");
-        movies.add("The Aviator");
+    private List<Movie> getBestMovies() {
+        List<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("Inception",
+                "https://c8.alamy.com/compit/2jh2pw0/poster-del-filmato-inizio-2010-2jh2pw0.jpg",
+                4));
+        movies.add(new Movie("Pulp Fiction",
+                "https://static.posters.cz/image/750/poster/pulp-fiction-cover-i1288.jpg",
+                5));
+        movies.add(new Movie("La vita è bella",
+                "https://m.media-amazon.com/images/S/pv-target-images/dce5e049d547bbb2479d75927921e225efed074f5f0c29f95363f8eaec2f0e2d.jpg",
+                4));
         return movies;
     }
 
-    private List<String> getBestSongs() {
-        List<String> songs = new ArrayList<>();
-        songs.add("What's My Age Again");
-        songs.add("Perth");
-        songs.add("Sex Is On Fire");
+    private List<Song> getBestSongs() {
+        List<Song> songs = new ArrayList<>();
+        songs.add(new Song("What's My Age Again",
+                "https://pics.filmaffinity.com/Blink_182_What_s_My_Age_Again_Music_Video-753423339-large.jpg",
+                "Blink 182"));
+        songs.add(new Song("Perth",
+                "https://f4.bcbits.com/img/a1388691918_65",
+                "Bon Iver"));
+        songs.add(new Song("Sex Is On Fire",
+                "https://m.media-amazon.com/images/I/71iT-e1vDOL._AC_UF1000,1000_QL80_.jpg",
+                "Kings of Leon"));
         return songs;
     }
 }
