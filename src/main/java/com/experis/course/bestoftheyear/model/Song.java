@@ -1,21 +1,21 @@
 package com.experis.course.bestoftheyear.model;
 
 public class Song {
-    private String title;
-    private String img;
     private String author;
+    private String img;
+    private String id;
 
-    public Song(String title, String img, String author) throws IllegalArgumentException {
-        if (title == null || title.isBlank()) {
+    public Song(String id, String img, String author) throws IllegalArgumentException {
+        if (id == null || id.isBlank()) {
             throw new IllegalArgumentException("title can't be empty");
         }
-        this.title = title;
+        this.id = id;
         this.img = img;
         this.author = author;
     }
 
-    public String getTitle() {
-        return title;
+    public String getId() {
+        return id;
     }
 
     public String getImg() {
@@ -23,11 +23,11 @@ public class Song {
     }
 
 
-    public void setTitle(String title) {
-        if (title == null || title.isBlank()) {
+    public void setId(String id) {
+        if (id == null || id.isBlank()) {
             throw new IllegalArgumentException("title can't be empty");
         }
-        this.title = title;
+        this.id = id;
     }
 
     public void setImg(String img) {

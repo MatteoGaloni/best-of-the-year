@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{/fragments/resources :: headResources('Best-Movies')}"></th:block>
+</head>
+<body>
+<header>
+    <nav th:replace="~{/fragments/resources :: navbar}"></nav>
+</header>
+<main>
+    <div class="container">
+        <h2 class="text-center" th:text="|Best of the year by … ${name}|"></h2>
+    </div>
+</main>
+<th:block th:replace="~{/fragments/resources :: jsResources}"></th:block>
+</body>
+</html>

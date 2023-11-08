@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{/fragments/resources :: headResources('Best-Movies')}"></th:block>
+</head>
+<body>
+<header>
+    <nav th:replace="~{/fragments/resources :: navbar}"></nav>
+</header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="d-flex justify-content-center">
+                <div class="d-flex text-center gap-2">
+                    <div th:each="movie: ${movies}" class=" col-4 card text-center" style="width: 18rem;">
+                        <h1 class="card-title" th:text="${movie.title}"></h1>
+                        <img class="card-img-top" th:src="${movie.img}" th:alt="${movie.title}">
+                        <a th:href="@{|/movies/${movie.id}|}" class="btn btn-primary">Movie details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<th:block th:replace="~{/fragments/resources :: jsResources}"></th:block>
+</body>
+</html>

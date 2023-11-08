@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{/fragments/resources :: headResources('SelectedMovie')}"></th:block>
+</head>
+<body>
+<nav th:replace="~{/fragments/resources :: navbar}"></nav>
+<div class="container">
+    <h1 class="text-center">MOVIE DETAILS</h1>
+    <div class="d-flex justify-content-center">
+        <div class="d-flex text-center gap-2">
+            <div class="card text-center" style="width: 18rem;">
+                <h1 class="card-title" th:text="${selectedMovie.title}"></h1>
+                <img class="card-img-top" th:src="${selectedMovie.img}">
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:replace="~{/fragments/resources :: jsResources}"></th:block>
+</body>
+</html>
